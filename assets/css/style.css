@@ -11,12 +11,14 @@ body{
 }
 nav{
     background-color: rgb(5, 63, 90);
+    
 }
 #menu{
     color: white;
     font-weight: 500;
     font-size: 1.2em;
     padding: 10px;
+    
 }
 #orange{
     background-color: rgb(224, 110, 17);
@@ -29,6 +31,32 @@ nav{
     margin: 2%;
 
 }
-header{
-    width: 100%;
+#lista{
+    list-style: none;
 }
+.sfondo{
+    background-image: url(../images/bg-image.png);
+    line-height: 100px;
+    margin: 2%;
+}
+#testo{
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+}
+.blocco{
+    box-sizing: border-box;
+}
+.box{
+    display: inline-block;
+    margin: 5px;
+    width: 200px;
+    height: auto;
+    padding: 5px;
+    border-radius: 25px;
+    
+
+}
+   
+
