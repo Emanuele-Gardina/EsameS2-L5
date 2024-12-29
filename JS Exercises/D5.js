@@ -59,22 +59,55 @@ const cars = [
   },
 ]
 
+cars.forEach(car => {
+  car.licensePlate = 'FB' + Math.floor(Math.random() * 1000) + 'MW';  // Aggiunge una targa casuale, altrimenti cancellando dal (+ math.floor in poi) inseriamo un valore che sarà uguale su tutte le proprietà licensePlate
+});
+
+console.log(cars);
+
 /* ESERCIZIO 6
     Scrivi del codice per aggiungere un nuovo oggetto in ultima posizione nell'array "cars", rispettando la struttura degli altri elementi.
     Successivamente, rimuovi l'ultimo elemento della proprietà "trims" da ogni auto.
 */
 
+// Aggiungere un nuovo oggetto alla fine dell'array
+cars.push({
+  brand: 'Mercedes Benz',
+  model: 'classe A 180',
+  color: 'white',
+  trims: ['premium', 'sport'],
+});
+
+// Rimuovere l'ultimo elemento di "trims" per ogni auto
+cars.forEach(car => {
+  car.trims.pop();  // Rimuove l'ultimo elemento dell'array "trims"
+});
+
+console.log(cars);
 
 /* ESERCIZIO 7
     Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel nuovo array "justTrims", sotto definito.
 */
-const justTrims = []
+
+// Creare un nuovo array "justTrims" con il primo elemento di "trims" per ogni auto
+const justTrims = cars.map(car => car.trims[0]);
+
+console.log(justTrims);
 
 /* ESERCIZIO 8
     Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi in console. Se la prima lettera della proprietà
     "color" ha valore "b", mostra in console "Fizz". Altrimenti, mostra in console "Buzz".
 */
 
+// Cicla attraverso l'array "cars"
+cars.forEach(car => {
+  // Controlla se la prima lettera del colore è "b" (ignora maiuscole/minuscole)
+  if (car.color[0].toLowerCase() === 'b') {
+    console.log("Fizz");
+  } else {
+    console.log("Buzz");
+  }
+});
 
 /* ESERCIZIO 9
     Utilizza un ciclo while per stampare in console i valori del seguente array numerico fino al raggiungimento del numero 32.
@@ -96,3 +129,42 @@ while(i<=32){
     es. [f, b, e] --> [6, 2, 5]
 */
 const charactersArray = ['g', 'n', 'u', 'z', 'd']
+
+// Funzione per determinare la posizione di ogni lettera nell'alfabeto italiano
+function getAlphabetPosition(letter) {
+  let position;
+
+  // Usando un costrutto switch per mappare ogni lettera all'interno dell'alfabeto
+  switch (letter.toLowerCase()) {
+    case 'a': position = 1; break;
+    case 'b': position = 2; break;
+    case 'c': position = 3; break;
+    case 'd': position = 4; break;
+    case 'e': position = 5; break;
+    case 'f': position = 6; break;
+    case 'g': position = 7; break;
+    case 'h': position = 8; break;
+    case 'i': position = 9; break;
+    case 'l': position = 10; break;  // "j" è escluso
+    case 'm': position = 11; break;
+    case 'n': position = 12; break;
+    case 'o': position = 13; break;
+    case 'p': position = 14; break;
+    case 'q': position = 15; break;
+    case 'r': position = 16; break;
+    case 's': position = 17; break;
+    case 't': position = 18; break;
+    case 'u': position = 19; break;
+    case 'v': position = 20; break;
+    case 'z': position = 21; break;
+    default: position = -1; // Gestisce lettere non valide, come "j", "k", "w", "x", "y"
+  }
+
+  return position;
+}
+
+// Creare un nuovo array con le posizioni di ogni lettera
+const positions = charactersArray.map(letter => getAlphabetPosition(letter));
+
+console.log(positions);
+
